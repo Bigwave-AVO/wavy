@@ -167,6 +167,8 @@
     .core-stage::after { content: ""; position: absolute; z-index: -1; inset: 14%; border: 1px solid rgba(170,108,255,.2); border-radius: 50%; transform: rotate(-24deg) scaleY(.57); box-shadow: 0 0 35px rgba(170,108,255,.04), inset 0 0 40px rgba(170,108,255,.03); animation: orbit-drift 24s linear infinite; }
     @keyframes orbit-drift { to { transform: rotate(336deg) scaleY(.57); } }
     #core-canvas { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 1; }
+    #core-canvas.fallback::before { content: "W4"; position: absolute; z-index: 2; left: 50%; top: 50%; display: grid; place-items: center; width: 35%; aspect-ratio: 1; transform: translate(-50%, -50%); border: 1px solid rgba(198,154,255,.55); border-radius: 50%; color: var(--violet-bright); font: 700 clamp(2rem, 5vw, 4rem)/1 var(--display); letter-spacing: -.09em; text-shadow: 0 0 25px rgba(170,108,255,.7); background: radial-gradient(circle, rgba(110,52,181,.27), rgba(10,7,20,.08) 70%); box-shadow: 0 0 55px rgba(170,108,255,.18), inset 0 0 36px rgba(170,108,255,.12); }
+    #core-canvas.fallback::after { content: "SIGNAL / STABLE"; position: absolute; z-index: 2; left: 50%; top: calc(50% + 24%); transform: translateX(-50%); color: var(--muted); font: 8px/1.5 var(--mono); letter-spacing: .2em; white-space: nowrap; }
     #core-canvas canvas { display: block; width: 100%; height: 100%; }
     .core-hud { position: absolute; z-index: 3; inset: 9% 4%; pointer-events: none; }
     .hud-corner { position: absolute; width: 27px; height: 27px; opacity: .75; }
@@ -193,7 +195,7 @@
     .signal-band { overflow: hidden; position: relative; z-index: 2; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: rgba(17,12,31,.42); }
     .band-track { width: max-content; display: flex; align-items: center; gap: 36px; padding: 15px 0; animation: band-move 32s linear infinite; }
     .band-track span { display: inline-flex; align-items: center; gap: 36px; color: var(--muted); font: 9px/1 var(--mono); letter-spacing: .16em; text-transform: uppercase; white-space: nowrap; }
-    .band-track span::after { content: "✳"; color: var(--violet); font-size: 10px; }
+    .band-track span::after { content: "//"; color: var(--violet); font-size: 9px; letter-spacing: -.1em; }
     @keyframes band-move { to { transform: translateX(-50%); } }
 
     /* Section patterns: every section reveals with its own movement */
@@ -488,7 +490,7 @@
               <span>Available for selected work</span>
             </div>
             <p class="hero-kicker">Full-stack developer // creative technologist</p>
-            <h1 class="hero-title" id="hero-title" data-glitch="W4VY&#10;XYZ"><span class="line" data-letters>W4VY</span><span class="line" data-letters>.XYZ</span></h1>
+            <h1 class="hero-title" id="hero-title" aria-label="W4VY dot XYZ" data-glitch="W4VY&#10;XYZ"><span class="line" data-letters>W4VY</span><span class="line" data-letters>.XYZ</span></h1>
             <p class="hero-manifesto">I design and engineer <strong>digital products with a pulse</strong> — sharp interfaces, useful tools, and the kind of details people feel before they notice.</p>
             <div class="type-row"><span class="prompt">&gt;</span><span id="typed-role" aria-label="Interface engineer">INTERFACE ENGINEER</span><span class="typing-caret" aria-hidden="true"></span></div>
             <div class="hero-actions">
@@ -506,7 +508,7 @@
             <div class="core-hud" aria-hidden="true">
               <span class="hud-corner tl"></span><span class="hud-corner tr"></span><span class="hud-corner bl"></span><span class="hud-corner br"></span>
               <div class="hud-readout top-left"><span>Signal object</span><strong>W4 / CORE</strong><span>State: evolving</span></div>
-              <div class="hud-readout bottom-right"><span>Coordinates</span><strong>06° 31′ N / 03° 23′ E</strong><span>Motion / reactive</span></div>
+              <div class="hud-readout bottom-right"><span>Orbital axis</span><strong>W4 / XYZ</strong><span>Motion / reactive</span></div>
             </div>
             <div class="core-tag tag-a"><b>01 //</b> digital matter</div>
             <div class="core-tag tag-b"><b>02 //</b> form follows feeling</div>
